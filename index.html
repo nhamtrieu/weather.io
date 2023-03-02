@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Weather App</title>
+        <link rel="stylesheet" href="./style.css" />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+            integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        />
+    </head>
+    <body>
+        <div class="container">
+            <h1 class="title">My weather app</h1>
+            <div class="header">
+                <input
+                    type="text"
+                    name=""
+                    id=""
+                    class="main-input"
+                    placeholder="Input location"
+                />
+                <button class="btn-search">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+            </div>
+            <div class="main weather">
+                <h2 class="city">Weather in Hanoi</h2>
+                <h1 class="temp">20⁰C</h1>
+                <img src="" alt="" class="icon" />
+                <span
+                    style="text-transform: capitalize"
+                    class="description"
+                ></span>
+                <span class="humidity"></span>
+                <span class="wind"></span>
+            </div>
+            <div class="image">
+                <img src="./not-found.png" alt="" class="img-404" />
+            </div>
+            <div class="footer">
+                <span class="contact">Contact me!</span>
+                <div class="footer-contact">
+                    <a href="https://github.com/nhamtrieu">
+                        <i class="fa-brands fa-github git"></i>
+                    </a>
+                    <a
+                        href="https://www.facebook.com/profile.php?id=100041079307279"
+                    >
+                        <i class="fa-brands fa-facebook"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <script src="./script.js"></script>
+    </body>
+</html>
