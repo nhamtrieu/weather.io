@@ -24,7 +24,7 @@ body span {
 .container {
     background: #000000d0;
     color: #fff;
-    padding: 2em;
+    padding: 2em 1em;
     border-radius: 28px;
     width: 100%;
     max-width: 400px;
