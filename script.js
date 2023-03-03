@@ -37,18 +37,30 @@ const renderWeather = function (data) {
     let searchBtn = document.querySelector("button");
     searchBtn.addEventListener("click", () => {
         let input = inputLocation.value;
-        let api = `https://api.openweathermap.org/data/2.5/weather?q=${input}&appid=${apiKey}`;
-        fetch(api)
-            .then((response) => response.json())
-            .then((data) => {
-                renderWeather(data);
-            })
-            .catch(() => {});
+        if (input.trim() === "") {
+            main.style.display = "none";
+            document.querySelector(".image").style.display = "none";
+            emptyString();
+            closeAlert();
+        } else {
+            let api = `https://api.openweathermap.org/data/2.5/weather?q=${input}&appid=${apiKey}`;
+            fetch(api)
+                .then((response) => response.json())
+                .then((data) => {
+                    renderWeather(data);
+                })
+                .catch(() => {});
+        }
     });
     window.addEventListener("keyup", (e) => {
         if (e.keyCode === 13) {
             let input = inputLocation.value;
-            if (input.trim() !== "") {
+            if (input.trim() === "") {
+                main.style.display = "none";
+                document.querySelector(".image").style.display = "none";
+                emptyString();
+                closeAlert();
+            } else {
                 let api = `https://api.openweathermap.org/data/2.5/weather?q=${input}&appid=${apiKey}`;
                 fetch(api)
                     .then((response) => response.json())
@@ -61,3 +73,26 @@ const renderWeather = function (data) {
         }
     });
 })();
+
+function emptyString() {
+    const overlay = document.createElement("div");
+    overlay.className = "overlay";
+    const containerAlert = document.createElement("div");
+    containerAlert.className = "alert";
+    const closeBtn = document.createElement("button");
+    closeBtn.className = "close-btn";
+    closeBtn.innerHTML = `<i class="fa-regular fa-circle-xmark"></i>`;
+    const alertParagraph = document.createElement("p");
+    alertParagraph.innerText = "Vui long nhap ten thanh pho";
+    overlay.appendChild(containerAlert);
+    containerAlert.appendChild(closeBtn);
+    containerAlert.appendChild(alertParagraph);
+    document.body.appendChild(overlay);
+}
+
+function closeAlert() {
+    let closeBtn = document.querySelector(".close-btn");
+    closeBtn.addEventListener("click", () => {
+        document.querySelector(".overlay").remove();
+    });
+}
